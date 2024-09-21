@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video from GitHub</title>
+    <style>
+        /* Стили для видео с отступами */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* Темный фон для более приятного просмотра */
+            overflow: hidden; /* Убирает скроллбар */
+        }
+
+        video {
+            width: 90vw; /* Ширина 90% от ширины экрана */
+            height: 90vh; /* Высота 90% от высоты экрана */
+            object-fit: contain; /* Видео будет вписываться, сохраняя пропорции */
+            background-color: #000; /* Черный фон вокруг видео */
+        }
+
+        #fullscreen-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10; /* Убедитесь, что кнопка поверх видео */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Встроенное видео с выключенным звуком -->
+    <video id="video" autoplay muted loop playsinline>
+        <source src="https://github.com/Amachono/.mp4/raw/main/VID-20240815-WA0000.mp4" type="video/mp4">
+        Ваш браузер не поддерживает элемент <code>video</code>.
+    </video>
+
+    <!-- Кнопка полноэкранного режима -->
+    <button id="fullscreen-button">Fullscreen</button>
+
+    <script>
+        const video = document.getElementById('video');
+        const fullscreenButton = document.getElementById('fullscreen-button');
+
+        fullscreenButton.addEventListener('click', () => {
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                video.requestFullscreen();
+            }
+        });
+    </script>
+
+</body>
+</html>
